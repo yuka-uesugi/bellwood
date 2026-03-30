@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f6f9" />
+      <stop offset="100%" stop-color="#e3e7ee" />
+    </linearGradient>
+    <linearGradient id="primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628" />
+      <stop offset="100%" stop-color="#162a4a" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)" />
+  
+  <!-- Subtle background grid/blueprint pattern -->
+  <g stroke="#0a1628" stroke-width="1" stroke-opacity="0.08">
+    <path d="M0 100 H800 M0 200 H800 M0 300 H800 M0 400 H800 M0 500 H800" />
+    <path d="M100 0 V600 M200 0 V600 M300 0 V600 M400 0 V600 M500 0 V600 M600 0 V600 M700 0 V600" />
+  </g>
+
+  <!-- Abstract House / Building Wireframe -->
+  <path d="M 220 380 L 400 220 L 580 380 V 480 H 220 Z" fill="#ffffff" opacity="0.6" stroke="url(#primary)" stroke-width="10" stroke-linejoin="round" />
+  
+  <!-- Window / Elements -->
+  <rect x="340" y="330" width="120" height="120" rx="8" fill="none" stroke="#b89650" stroke-width="8" />
+  <line x1="340" y1="390" x2="460" y2="390" stroke="#b89650" stroke-width="8" />
+  <line x1="400" y1="330" x2="400" y2="450" stroke="#b89650" stroke-width="8" />
+
+  <!-- Roof accent emphasizing reform/remodel -->
+  <path d="M 180 380 L 400 180 L 620 380" fill="none" stroke="#b89650" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Floating tool / abstract gear graphic -->
+  <g transform="translate(560, 240) scale(1.2)">
+    <circle cx="0" cy="0" r="24" fill="#0a1628" />
+    <circle cx="0" cy="0" r="12" fill="#f4f6f9" />
+    <path d="M-6 -30 L6 -30 L8 -16 L-8 -16 Z" fill="#0a1628" />
+    <path d="M-6 30 L6 30 L8 16 L-8 16 Z" fill="#0a1628" />
+    <path d="M-30 -6 L-30 6 L-16 8 L-16 -8 Z" fill="#0a1628" />
+    <path d="M30 -6 L30 6 L16 8 L16 -8 Z" fill="#0a1628" />
+  </g>
+</svg>

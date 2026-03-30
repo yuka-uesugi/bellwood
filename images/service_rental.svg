@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f6f9" />
+      <stop offset="100%" stop-color="#e3e7ee" />
+    </linearGradient>
+    <linearGradient id="primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628" />
+      <stop offset="100%" stop-color="#162a4a" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)" />
+  
+  <!-- Subtle dots pattern -->
+  <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="2" fill="#0a1628" opacity="0.08" />
+  </pattern>
+  <rect width="800" height="600" fill="url(#dots)" />
+
+  <!-- Abstract Buildings (Apartments/Living) -->
+  <path d="M 220 440 L 220 280 L 320 200 L 420 280 L 420 440 Z" fill="#ffffff" opacity="0.6" stroke="url(#primary)" stroke-width="12" stroke-linejoin="round" />
+  <rect x="420" y="280" width="180" height="160" fill="#ffffff" opacity="0.6" stroke="url(#primary)" stroke-width="12" stroke-linejoin="round" />
+  
+  <!-- Windows -->
+  <rect x="270" y="320" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+  <rect x="330" y="320" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+  <rect x="270" y="380" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+  <rect x="330" y="380" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+  
+  <rect x="460" y="320" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+  <rect x="520" y="320" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+  <rect x="460" y="380" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+  <rect x="520" y="380" width="40" height="40" rx="4" fill="#0a1628" opacity="0.15" />
+
+  <!-- Shield / Security / Management Graphic -->
+  <path d="M 400 120 L 480 160 V 260 C 480 320 400 380 400 380 C 400 380 320 320 320 260 V 160 Z" fill="#ffffff" stroke="#b89650" stroke-width="14" stroke-linejoin="round" />
+  <!-- Checkmark inside shield -->
+  <path d="M 360 250 L 390 280 L 440 210" fill="none" stroke="#0a1628" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

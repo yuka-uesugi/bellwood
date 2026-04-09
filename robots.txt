@@ -1,0 +1,8 @@
+# 有限会社ベルウッドカンパニー — robots.txt
+# すべての検索エンジンクローラーにクロールを許可
+
+User-agent: *
+Allow: /
+
+# サイトマップの場所を指定
+Sitemap: https://b-w-c.jp/sitemap.xml

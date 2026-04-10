@@ -591,6 +591,37 @@ ul { list-style: none; }
   color: var(--text-main);
 }
 
+@media (max-width: 768px) {
+  .company-info-table, 
+  .company-info-table tbody, 
+  .company-info-table tr, 
+  .company-info-table th, 
+  .company-info-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .company-info-table tr {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .company-info-table th, 
+  .company-info-table td {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .company-info-table th {
+    margin-bottom: 8px;
+  }
+
+  /* 所在地が折り返されずにはみ出す問題の修正 */
+  .company-info-table tr:nth-child(4) td {
+    white-space: normal;
+  }
+}
+
 .company-gallery {
   width: 100%;
 }

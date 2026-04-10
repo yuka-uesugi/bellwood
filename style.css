@@ -455,6 +455,14 @@ ul { list-style: none; }
   line-height: 1.6;
 }
 
+.pickup-badge-bottom {
+  font-size: 0.7rem;
+  color: #999;
+  text-align: right;
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+
 @media (max-width: 768px) {
   .pickup-banner {
     padding: 20px;

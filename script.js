@@ -34,33 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // --- ナビリンクをクリックしたらメニューを閉じてジャンプ ---
+  // --- ナビリンクをクリックしたらメニューを閉じる ---
   document.querySelectorAll('.nav-list a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      // オーバーレイのclickイベントとの競合を防止
-      e.stopPropagation();
-
-      const targetId = link.getAttribute('href');
-
-      // メニューが開いていれば閉じる
+    link.addEventListener('click', () => {
+      // メニューが開いている場合のみ処理
       if (mainNav.classList.contains('open')) {
-        hamburger.classList.remove('active');
-        mainNav.classList.remove('open');
-        navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      // ブラウザのデフォルトのアンカージャンプを止めて、手動で確実にジャンプ
-      e.preventDefault();
-
-      // ハッシュを設定
-      history.pushState(null, '', targetId);
-
-      // DOM更新後にスクロール実行
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        // scrollIntoViewはiOS Safariでも確実に動く
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // iOS Safari等でのスクロールキャンセルを防ぐため、
+        // ブラウザのネイティブジャンプを優先させ、メニューが閉じる（overflow:hidden解除）のを遅延させる
+        setTimeout(() => {
+          hamburger.classList.remove('active');
+          mainNav.classList.remove('open');
+          navOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }, 100); // 0.1秒待ってからメニューを閉じる
       }
     });
   });

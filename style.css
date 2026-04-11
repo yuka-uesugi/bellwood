@@ -814,7 +814,7 @@ ul { list-style: none; }
   line-height: 1.9;
   color: var(--text-sub);
   margin-bottom: 24px;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }

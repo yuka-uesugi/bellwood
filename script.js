@@ -41,22 +41,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const targetId = anchor.getAttribute('href');
       const targetEl = document.querySelector(targetId);
-      
-      if (targetEl) {
-        // 先にスクロール位置を計算
-        const headerHeight = header.offsetHeight;
-        const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
-        
-        // 即座にスクロールを実行（setTimeoutを使うとモバイルで無視されるバグを防止）
-        window.scrollTo({
-          top: targetPos,
-          behavior: 'smooth'
-        });
 
-        // その後メニューを閉じる
+      if (targetEl) {
+        // 先にメニューを閉じてoverflow:hiddenを解除（重要！閉じないとscrollToが無視される）
         if (mainNav.classList.contains('open')) {
           toggleMenu();
         }
+
+        // overflow解除の描画を待ってからスクロール実行
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const headerHeight = header.offsetHeight;
+            const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
+            window.scrollTo({
+              top: targetPos,
+              behavior: 'smooth'
+            });
+          });
+        });
       }
     });
   });

@@ -38,25 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // メニューが開いていれば閉じる
-      if (mainNav.classList.contains('open')) {
-        toggleMenu();
-      }
 
       const targetId = anchor.getAttribute('href');
       const targetEl = document.querySelector(targetId);
       
       if (targetEl) {
-        // モバイルブラウザでのスクロール停止バグを防ぐため、メニューが閉じる描画を待ってからスクロール開始
-        setTimeout(() => {
-          const headerHeight = header.offsetHeight;
-          const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
-          window.scrollTo({
-            top: targetPos,
-            behavior: 'smooth'
-          });
-        }, 150);
+        // 先にスクロール位置を計算
+        const headerHeight = header.offsetHeight;
+        const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
+        
+        // 即座にスクロールを実行（setTimeoutを使うとモバイルで無視されるバグを防止）
+        window.scrollTo({
+          top: targetPos,
+          behavior: 'smooth'
+        });
+
+        // その後メニューを閉じる
+        if (mainNav.classList.contains('open')) {
+          toggleMenu();
+        }
       }
     });
   });

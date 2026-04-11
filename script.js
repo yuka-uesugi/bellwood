@@ -34,13 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // --- ナビリンクをクリックしたらメニューを閉じる ---
-  // ※ジャンプ自体はブラウザ本来のアンカーリンク機能に任せる（CSS scroll-behavior: smooth で制御）
-  // ※e.preventDefault() は使わない（iOS Safari でジャンプが無効化されるため）
+  // --- ナビリンクをクリックしたらメニューを閉じてジャンプ ---
   document.querySelectorAll('.nav-list a').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      // オーバーレイのclickイベントとの競合を防止
+      e.stopPropagation();
+
+      const targetId = link.getAttribute('href');
+
+      // メニューが開いていれば閉じる
       if (mainNav.classList.contains('open')) {
-        toggleMenu();
+        hamburger.classList.remove('active');
+        mainNav.classList.remove('open');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // ブラウザのデフォルトのアンカージャンプを止めて、手動で確実にジャンプ
+      e.preventDefault();
+
+      // ハッシュを設定
+      history.pushState(null, '', targetId);
+
+      // DOM更新後にスクロール実行
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        // scrollIntoViewはiOS Safariでも確実に動く
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });

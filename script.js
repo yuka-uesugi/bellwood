@@ -34,28 +34,29 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // ナビリンクをクリックしたらメニューを閉じる
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (mainNav.classList.contains('open')) {
-        toggleMenu();
-      }
-    });
-  });
-
-  // --- スムーズスクロール ---
+  // --- スムーズスクロール 兼 メニュー閉じる処理 ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      // メニューが開いていれば閉じる
+      if (mainNav.classList.contains('open')) {
+        toggleMenu();
+      }
+
       const targetId = anchor.getAttribute('href');
       const targetEl = document.querySelector(targetId);
+      
       if (targetEl) {
-        const headerHeight = header.offsetHeight;
-        const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({
-          top: targetPos,
-          behavior: 'smooth'
-        });
+        // モバイルブラウザでのスクロール停止バグを防ぐため、メニューが閉じる描画を待ってからスクロール開始
+        setTimeout(() => {
+          const headerHeight = header.offsetHeight;
+          const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({
+            top: targetPos,
+            behavior: 'smooth'
+          });
+        }, 150);
       }
     });
   });

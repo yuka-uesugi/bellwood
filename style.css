@@ -329,6 +329,11 @@ ul { list-style: none; }
     white-space: normal;
     overflow-wrap: break-word;
   }
+  .hero-statement {
+    max-width: 310px;
+    text-align: left;
+    padding: 16px 20px;
+  }
 }
 
 .hero-statement {

@@ -34,11 +34,29 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // --- ナビリンクをクリックしたらメニューを閉じる ---
+  // --- ナビリンクをクリックしたらメニューを閉じる ＆ iOSジャンプバグ回避 ---
   document.querySelectorAll('.nav-list a').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // デフォルトのジャンプを一時停止
+
+      const targetId = link.getAttribute('href');
+      const targetEl = document.querySelector(targetId);
+
+      // メニューが開いていれば閉じる（画面ロック overflow:hidden を解除）
       if (mainNav.classList.contains('open')) {
         toggleMenu();
+      }
+
+      if (targetEl) {
+        // 画面ロックが解除され、メニューが閉じるアニメーションが終わるのを少し待ってから確実にジャンプする
+        setTimeout(() => {
+          const headerHeight = header.offsetHeight;
+          const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({
+            top: targetPos,
+            behavior: 'smooth'
+          });
+        }, 300); // 0.3秒遅延
       }
     });
   });

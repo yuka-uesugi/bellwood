@@ -76,9 +76,15 @@ ul { list-style: none; }
   text-align: center;
 }
 
-/* 改行位置の調整用（文節をまとめる） */
-.keep-together {
-  display: inline;
+/* 改行位置と表示の調整用ユーティリティ */
+.keep-together { display: inline; }
+.sp-only { display: none !important; }
+.pc-only { display: block !important; }
+
+@media (max-width: 768px) {
+  .sp-only { display: block !important; }
+  .pc-only { display: none !important; }
+  .text-left-sp { text-align: left !important; display: inline-block; }
 }
 
 .section-header {

@@ -34,8 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // JS介入テストのため、ナビリンクのクリックイベント（メニューを閉じる処理など）を一旦完全に削除しています。
-  // これにより、純粋な「HTMLの標準アンカージャンプ」として機能するかを確認します。
+  // --- ナビリンクをクリックしたら確実にジャンプする処理 ---
+  document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      // 1. デフォルトのタップを止める
+      e.preventDefault();
+
+      const href = link.getAttribute('href');
+
+      // 2. スクロールロック解除
+      hamburger.classList.remove('active');
+      mainNav.classList.remove('open');
+      navOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+
+      // 3. 確実に解除されてからハッシュ遷移
+      setTimeout(() => {
+        window.location.hash = href;
+      }, 300);
+    });
+  });
 
   // --- アクティブナビリンクの更新 ---
   const sections = document.querySelectorAll('section[id]');

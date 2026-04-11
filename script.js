@@ -34,22 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // --- ナビリンクをクリックしたらメニューを閉じる ---
-  document.querySelectorAll('.nav-list a').forEach(link => {
-    link.addEventListener('click', () => {
-      // メニューが開いている場合のみ処理
-      if (mainNav.classList.contains('open')) {
-        // iOS Safari等でのスクロールキャンセルを防ぐため、
-        // ブラウザのネイティブジャンプを優先させ、メニューが閉じる（overflow:hidden解除）のを遅延させる
-        setTimeout(() => {
-          hamburger.classList.remove('active');
-          mainNav.classList.remove('open');
-          navOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }, 100); // 0.1秒待ってからメニューを閉じる
-      }
-    });
-  });
+  // JS介入テストのため、ナビリンクのクリックイベント（メニューを閉じる処理など）を一旦完全に削除しています。
+  // これにより、純粋な「HTMLの標準アンカージャンプ」として機能するかを確認します。
 
   // --- アクティブナビリンクの更新 ---
   const sections = document.querySelectorAll('section[id]');

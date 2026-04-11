@@ -135,7 +135,7 @@ ul { list-style: none; }
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1100;
   padding: 16px 0;
   transition: all 0.4s var(--ease);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);

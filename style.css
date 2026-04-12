@@ -138,7 +138,8 @@ ul { list-style: none; }
   z-index: 1100;
   padding: 16px 0;
   transition: all 0.4s var(--ease);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+  /* ロゴや紺色の文字が綺麗に浮かび上がるよう、白のグラデーションをうっすら敷く */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .site-header.scrolled {
@@ -193,15 +194,16 @@ ul { list-style: none; }
 
 .nav-list a {
   font-family: var(--font-en);
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 0.95rem; /* 少し大きく */
+  font-weight: 700; /* 太くして視認性を高める */
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--navy);
   position: relative;
   padding-bottom: 4px;
   transition: all 0.3s var(--ease);
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.3);
+  /* 強力な白の光彩（後光）で背景の空から文字を切り離す */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 4px #ffffff;
 }
 
 .nav-list a::after {

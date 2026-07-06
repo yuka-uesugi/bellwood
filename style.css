@@ -17,6 +17,7 @@
   --gold-dark:   #a8893a;
   --green:       #2d6a4f;
   --green-light: #40916c;
+  --border:      rgba(0, 0, 0, 0.08);
   
   /* フォント */
   --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -298,7 +299,7 @@ ul { list-style: none; }
 
 .hero-sub {
   display: inline-block;
-  font-family: var(--font-ja);
+  font-family: var(--font-jp);
   font-size: 1.1rem;
   font-weight: 900;
   letter-spacing: 0.25em;
@@ -860,7 +861,7 @@ ul { list-style: none; }
   font-family: var(--font-en);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* ============================================================

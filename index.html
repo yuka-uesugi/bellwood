@@ -15,24 +15,27 @@
   <meta property="og:url" content="https://b-w-c.jp/">
   <meta property="og:site_name" content="有限会社ベルウッドカンパニー">
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:image" content="https://b-w-c.jp/bellwoodlogotouka.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://b-w-c.jp/images/logo_small.png">
+  <meta property="og:image:width" content="658">
+  <meta property="og:image:height" content="480">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="有限会社ベルウッドカンパニー ｜ 横浜市青葉区の不動産">
   <meta name="twitter:description" content="横浜市青葉区を拠点に、未公開の投資収益物件や賃貸管理、リフォームまで幅広く対応。">
-  <meta name="twitter:image" content="https://b-w-c.jp/bellwoodlogotouka.png">
+  <meta name="twitter:image" content="https://b-w-c.jp/images/logo_small.png">
 
   <!-- Favicon -->
-  <link rel="icon" href="bellwoodlogotouka.png" type="image/png">
-  <link rel="apple-touch-icon" href="bellwoodlogotouka.png">
+  <link rel="icon" href="images/logo_small.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/logo_small.png">
+
+  <meta name="theme-color" content="#0a1628">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.1">
+  <link rel="preload" as="image" href="images/hero_background.png">
+  <link rel="stylesheet" href="style.css?v=1.4">
 
   <!-- 構造化データ（JSON-LD）— 会社情報 -->
   <script type="application/ld+json">
@@ -42,7 +45,7 @@
     "name": "有限会社ベルウッドカンパニー",
     "alternateName": "BELL WOOD COMPANY",
     "url": "https://b-w-c.jp/",
-    "logo": "https://b-w-c.jp/bellwoodlogotouka.png",
+    "logo": "https://b-w-c.jp/images/logo_small.png",
     "image": "https://b-w-c.jp/bellwoodgaikan.jpg",
     "description": "横浜市青葉区を拠点に、未公開の投資収益物件や賃貸管理、リフォームまで幅広く対応する不動産会社です。",
     "telephone": "045-905-4114",
@@ -114,10 +117,10 @@
   <header class="site-header" id="header">
     <div class="header-inner">
       <a href="#home" class="logo">
-        <img src="bellwoodlogotouka.png" alt="BELL WOOD COMPANY" class="logo-image">
+        <img src="images/logo_small.png" alt="有限会社ベルウッドカンパニー" class="logo-image" width="658" height="480">
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false" aria-controls="mainNav">
         <span></span><span></span><span></span>
       </button>
 
@@ -297,35 +300,35 @@
         <div class="fade-in">
           <table class="company-info-table">
             <tr>
-              <th>会社名</th>
+              <th scope="row">会社名</th>
               <td>有限会社　ベルウッドカンパニー</td>
             </tr>
             <tr>
-              <th>設立</th>
+              <th scope="row">設立</th>
               <td>平成16年7月9日</td>
             </tr>
             <tr>
-              <th>代表取締役</th>
+              <th scope="row">代表取締役</th>
               <td>鈴木 守</td>
             </tr>
             <tr>
-              <th>所在地</th>
+              <th scope="row">所在地</th>
               <td>横浜市青葉区美しが丘4-1-28　テラスビル2F</td>
             </tr>
             <tr>
-              <th>資本金</th>
+              <th scope="row">資本金</th>
               <td>3,000,000円</td>
             </tr>
             <tr>
-              <th>免許番号</th>
+              <th scope="row">免許番号</th>
               <td>神奈川県知事（4）第26017号</td>
             </tr>
             <tr>
-              <th>関連団体</th>
+              <th scope="row">関連団体</th>
               <td>公益社団法人全国宅地建物取引業保証協会</td>
             </tr>
             <tr>
-              <th>事業内容</th>
+              <th scope="row">事業内容</th>
               <td>
                 ＜ 賃貸・管理 ＞<br>
                 アパート・マンション・土地・倉庫・事務所・店舗の仲介および管理、駐車場の運営管理。入居者管理まで幅広く対応。<br><br>
@@ -348,7 +351,7 @@
               <img src="bellwoodgaikan.jpg" alt="ベルウッドカンパニー 事務所外観" loading="lazy">
             </div>
             <div class="gallery-item">
-              <img src="images/IMG_3890_2.jpg" alt="ベルウッドカンパニー 応接スペース" loading="lazy">
+              <img src="images/office_interior.jpg" alt="ベルウッドカンパニー 応接スペース" loading="lazy">
             </div>
           </div>
         </div>
@@ -385,9 +388,9 @@
               <path d="M 20 40 L 20 26 L 32 16 L 44 26 L 44 40 L 35 40 L 35 28 L 29 28 L 29 40 Z" fill="#ffffff" />
             </svg>
           </a>
-          <iframe 
-            src="https://maps.google.co.jp/maps?q=有限会社ベルウッドカンパニー,神奈川県横浜市青葉区美しが丘4-1-28&output=embed&z=17&hl=ja" 
-            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          <iframe
+            src="https://maps.google.co.jp/maps?q=有限会社ベルウッドカンパニー,神奈川県横浜市青葉区美しが丘4-1-28&output=embed&z=17&hl=ja"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ベルウッドカンパニー周辺地図（Googleマップ）">
           </iframe>
         </div>
       </div>
@@ -463,6 +466,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=5.4"></script>
+  <script src="script.js?v=5.5"></script>
 </body>
 </html>

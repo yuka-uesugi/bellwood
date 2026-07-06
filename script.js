@@ -28,7 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.classList.toggle('active');
     mainNav.classList.toggle('open');
     navOverlay.classList.toggle('active');
-    document.body.style.overflow = mainNav.classList.contains('open') ? 'hidden' : '';
+    const isOpen = mainNav.classList.contains('open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   };
 
   hamburger.addEventListener('click', toggleMenu);
@@ -37,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- ナビリンクをクリックしたら確実にジャンプする処理 ---
   document.querySelectorAll('.nav-list a').forEach(link => {
     link.addEventListener('click', (e) => {
+      const menuWasOpen = mainNav.classList.contains('open');
+
+      // メニューが閉じている（PC表示）ときはブラウザ標準のスムーススクロールに任せる
+      if (!menuWasOpen) return;
+
       // 1. デフォルトのタップを止める
       e.preventDefault();
 
@@ -47,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainNav.classList.remove('open');
       navOverlay.classList.remove('active');
       document.body.style.overflow = '';
+      hamburger.setAttribute('aria-expanded', 'false');
 
       // 3. 確実に解除されてからハッシュ遷移
       setTimeout(() => {
